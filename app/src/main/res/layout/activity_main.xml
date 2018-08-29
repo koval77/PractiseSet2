@@ -20,10 +20,10 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:padding="4dp"
-            android:text="Team A" />
+            android:text="First number" />
 
         <TextView
-            android:id="@+id/team_a_score"
+            android:id="@+id/number_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -50,6 +50,13 @@
             android:layout_margin="8dp"
             android:onClick="free"
             android:text="Free throw" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Get Question"
+            android:onClick="getQuestion"/>
     </LinearLayout>
 
     <View
@@ -69,10 +76,10 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="4dp"
-            android:text="Team B" />
+            android:text="Second number" />
 
         <TextView
-            android:id="@+id/team_b_score"
+            android:id="@+id/number_2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -112,5 +119,4 @@
                 android:text="Reset"/>
         </RelativeLayout>
     </LinearLayout>
-
 </LinearLayout>
