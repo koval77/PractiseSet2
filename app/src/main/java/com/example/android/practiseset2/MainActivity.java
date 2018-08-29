@@ -6,21 +6,20 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.Random;
 
+/*Class definition for MainActivity which is extension (so we can use inherited methods for example findViewbyId)
+ of AppCompatActivity. I have made global variable for points*/
 public class MainActivity extends AppCompatActivity {
     int points=0;
-    int scoreTeamA=0;
-    int scoreTeamB=0;
-
+/*By using override, it is possible to modify inherited methods from super class. I add here method for moving the focus to first answer view
+* after starting the application.*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         EditText result=(EditText)findViewById(R.id.result);
         result.requestFocus();
-        // PASTE CODE YOU WANT TO TEST HERE
     }
     public void getQuestion(View view)
     {    Random r1=new Random();
@@ -54,23 +53,28 @@ public class MainActivity extends AppCompatActivity {
         EditText resultm=(EditText)findViewById(R.id.resultM);
         resultm.setText("");
     }
+    /*Method for displaying points. The casting which I have used here is not actually  necessary since API 26 and
+    I could have delete it safely. */
     public void displayPoints(int points) {
         TextView number1View = (TextView) findViewById(R.id.pointshere);
         number1View.setText(String.valueOf(points));
     }
+    /*In this method, method append is entering answer to the result edit views (0 in this case).*/
     public void insert1(View view){
         EditText result=(EditText)getCurrentFocus();
         result.append("1");
     }
     public void points(View view){
-        scoreTeamA=scoreTeamA+1;
-        displayPoints((scoreTeamA));
     }
     public void insert0(View view){
-//        EditText result=(EditText)findViewById(R.id.result);
         EditText result=(EditText)getCurrentFocus();
         result.append("0");
     }
+/*    This method read the text values from addition text views and converting them to decimals.
+    In the conditional statement it check if the outcome is right, if it is Toast object is created
+    using factory method, (not the constructor in this case) to display short message. Points are updated
+    * and displayed, focus is moved to the next text view. This scenario ends by returning the true value (I have used it for testing).
+    * If the calculation is wrong, another Toast is displayed and method return false value.*/
     public boolean checkAdd(View view){
         TextView num1=(TextView)findViewById(R.id.number_1);
         TextView num2=(TextView)findViewById(R.id.number_2);
@@ -141,9 +145,7 @@ public class MainActivity extends AppCompatActivity {
             return false;
         }
     }
-    public void check(View view){
-        points=0;
-        displayPoints(points);
+    public void checkAll(View view){
     }
 
     public void help(View view) {
