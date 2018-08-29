@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Binary numbers quiz</string>
+    <string name="title_activity_help_screen">HelpScreen</string>
 </resources>
