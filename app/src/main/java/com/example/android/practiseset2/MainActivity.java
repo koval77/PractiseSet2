@@ -25,18 +25,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    /**
-     * Display methods that allow the text to appear on the screen. Don't worry if you don't know
-     * how these work yet. We'll be covering them in lesson 3.
-     */
-
-    /**
-     * Displays the given score for Team A.
-     */
     public void getQuestion(View view)
     {    Random r1=new Random();
         int pcn1=r1.nextInt(100);
-
         Random r2=new Random();
         int pcn2=r2.nextInt(100);
         TextView number1View = (TextView) findViewById(R.id.number_1);
@@ -49,15 +40,10 @@ public class MainActivity extends AppCompatActivity {
         number1View.setText(String.valueOf(score));
         TextView number2View = (TextView) findViewById(R.id.number_2);
         number2View.setText(String.valueOf(score));
-
     }
     public void displayNumberTwo(int score) {
         TextView number2View = (TextView) findViewById(R.id.number_2);
         number2View.setText(String.valueOf(score));
-    }
-    public void add3(View view){
-        scoreTeamA=scoreTeamA+3;
-        displayNumberOne(scoreTeamA);
     }
     public void add2(View view){
         scoreTeamA=scoreTeamA+2;
@@ -67,10 +53,6 @@ public class MainActivity extends AppCompatActivity {
         scoreTeamA=scoreTeamA+1;
         displayNumberOne((scoreTeamA));
     }
-    public void add3B(View view){
-        scoreTeamB=scoreTeamB+3;
-        displayNumberTwo(scoreTeamB);
-    }
     public void add2B(View view){
         scoreTeamB=scoreTeamB+2;
         displayNumberTwo(scoreTeamB);
@@ -79,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         scoreTeamB=scoreTeamB+1;
         displayNumberTwo((scoreTeamB));
     }
-    public void reset(View view){
+    public void check(View view){
         scoreTeamA=0;
         scoreTeamB=0;
         displayNumberTwo(scoreTeamB);
