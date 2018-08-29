@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:orientation="horizontal">
 
-
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
@@ -20,7 +19,8 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:padding="4dp"
-            android:text="First number" />
+            android:textSize="18sp"
+            android:text="Add:" />
 
         <TextView
             android:id="@+id/number_1"
@@ -28,6 +28,39 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="4dp"
+            android:textSize="18sp"
+            android:text="0" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:padding="4dp"
+            android:textSize="18sp"
+            android:text="Substract:" />
+
+        <TextView
+            android:id="@+id/number_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="4dp"
+            android:textSize="18sp"
+            android:text="0" />
+        <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:padding="4dp"
+        android:textSize="18sp"
+        android:text="Multiply:" />
+
+        <TextView
+            android:id="@+id/number_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="4dp"
+            android:textSize="18sp"
             android:text="0" />
 
 
@@ -35,8 +68,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:onClick="add2"
-            android:text="+2 Points" />
+            android:onClick="insert1"
+            android:text="Insert 1" />
 
         <Button
             android:layout_width="match_parent"
@@ -51,6 +84,85 @@
             android:layout_height="wrap_content"
             android:text="Get Question"
             android:onClick="getQuestion"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        tools:context="com.example.android.practiseset2.MainActivity">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:padding="4dp"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/number_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="4dp"
+            android:textSize="18sp"
+            android:text="0" />
+
+        <TextView
+            android:id="@+id/hole1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="4dp"
+            android:text="0"
+            android:textSize="18sp"
+            android:visibility="invisible" />
+        <TextView
+            android:id="@+id/number_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="4dp"
+            android:textSize="18sp"
+            android:text="0" />
+        <TextView
+            android:id="@+id/hole2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="4dp"
+            android:text="0"
+            android:textSize="18sp"
+            android:visibility="invisible" />
+        <TextView
+            android:id="@+id/number_6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="4dp"
+            android:textSize="18sp"
+            android:text="0" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:onClick="checkAdd"
+            android:text="Check Add." />
+        <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:onClick="checkSub"
+        android:text="Check Sub." />
+        <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="checkMult"
+        android:text="Check Mult." />
+
+
+
     </LinearLayout>
 
     <View
@@ -70,29 +182,64 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="4dp"
-            android:text="Second number" />
+            android:textSize="18sp"
+            android:text="Result" />
 
-        <TextView
-            android:id="@+id/number_2"
+        <EditText
+            android:id="@+id/result"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="4dp"
-            android:text="0" />
+            android:textSize="18sp" />
+        <TextView
+            android:id="@+id/hole3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="4dp"
+            android:text="0"
+            android:textSize="18sp"
+            android:visibility="invisible" />
+
+        <EditText
+            android:id="@+id/resultS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="4dp"
+            android:textSize="18sp" />
+        <TextView
+            android:id="@+id/hole4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="4dp"
+            android:text="0"
+            android:textSize="18sp"
+            android:visibility="invisible" />
+
+        <EditText
+            android:id="@+id/resultM"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="4dp"
+            android:textSize="18sp" />
 
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:onClick="add2B"
-            android:text="+2 Points" />
+            android:onClick="insert0"
+            android:text="Insert 0" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:onClick="freeB"
+            android:onClick="checkAdd"
             android:text="Free throw" />
 
         <RelativeLayout
@@ -104,7 +251,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="check"
-                android:text="Reset"/>
+                android:text="Check All" />
         </RelativeLayout>
     </LinearLayout>
 </LinearLayout>
