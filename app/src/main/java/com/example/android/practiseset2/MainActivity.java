@@ -2,24 +2,17 @@ package com.example.android.practiseset2;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.FocusFinder;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Random;
-import java.util.*;
 
 public class MainActivity extends AppCompatActivity {
+    int points=0;
     int scoreTeamA=0;
     int scoreTeamB=0;
-//    Random r2=new Random();
-//    int r1=0;
-
-//    r1.nextInt(56);
-//    r1=(int)(Math.random()*3.0);
-//    operand1Value = (int) (Math.random()*19.0) + 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +21,7 @@ public class MainActivity extends AppCompatActivity {
         EditText result=(EditText)findViewById(R.id.result);
         result.requestFocus();
         // PASTE CODE YOU WANT TO TEST HERE
-
     }
-
     public void getQuestion(View view)
     {    Random r1=new Random();
         int pcn1=r1.nextInt(100);
@@ -63,23 +54,17 @@ public class MainActivity extends AppCompatActivity {
         EditText resultm=(EditText)findViewById(R.id.resultM);
         resultm.setText("");
     }
-    public void displayNumberOne(int score) {
-        TextView number1View = (TextView) findViewById(R.id.number_1);
-        number1View.setText(String.valueOf(score));
-        TextView number2View = (TextView) findViewById(R.id.number_2);
-        number2View.setText(String.valueOf(score));
-    }
-    public void displayNumberTwo(int score) {
-        TextView number2View = (TextView) findViewById(R.id.number_2);
-        number2View.setText(String.valueOf(score));
+    public void displayPoints(int points) {
+        TextView number1View = (TextView) findViewById(R.id.pointshere);
+        number1View.setText(String.valueOf(points));
     }
     public void insert1(View view){
         EditText result=(EditText)getCurrentFocus();
         result.append("1");
     }
-    public void free(View view){
+    public void points(View view){
         scoreTeamA=scoreTeamA+1;
-        displayNumberOne((scoreTeamA));
+        displayPoints((scoreTeamA));
     }
     public void insert0(View view){
 //        EditText result=(EditText)findViewById(R.id.result);
@@ -100,6 +85,8 @@ public class MainActivity extends AppCompatActivity {
         if (nn1+nn2==rr1)
         {
             Toast.makeText(getApplicationContext(),"Yes!You are right!!!",Toast.LENGTH_SHORT).show();
+            points=points+10;
+            displayPoints(points);
             ress.requestFocus();
             return true;
         }
@@ -113,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
         TextView num3=(TextView)findViewById(R.id.number_3);
         TextView num4=(TextView)findViewById(R.id.number_4);
         EditText resm=(EditText)findViewById(R.id.resultS);
+        EditText resmm=(EditText)findViewById(R.id.resultM);
         String n3=num3.getText().toString();
         int nn3=Integer.parseInt(n3,2);
         String n4=num4.getText().toString();
@@ -122,6 +110,9 @@ public class MainActivity extends AppCompatActivity {
         if (nn3-nn4==rr2)
         {
             Toast.makeText(getApplicationContext(),"Yes!You are right!!!",Toast.LENGTH_SHORT).show();
+            points=points+50;
+            displayPoints(points);
+            resmm.requestFocus();
             return true;
         }
         else
@@ -142,6 +133,8 @@ public class MainActivity extends AppCompatActivity {
         int rr3 = Integer.parseInt(r3, 2);
         if (nn5 * nn6 == rr3) {
             Toast.makeText(getApplicationContext(), "Yes!You are right!!!", Toast.LENGTH_SHORT).show();
+            points=points+100;
+            displayPoints(points);
             return true;
         } else {
             Toast.makeText(getApplicationContext(), "No, sorry, you are wrong :(", Toast.LENGTH_SHORT).show();
@@ -149,9 +142,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     public void check(View view){
-        scoreTeamA=0;
-        scoreTeamB=0;
-        displayNumberTwo(scoreTeamB);
-        displayNumberOne(scoreTeamA);
+        points=0;
+        displayPoints(points);
+    }
+
+    public void help(View view) {
     }
 }

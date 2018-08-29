@@ -75,8 +75,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:onClick="free"
-            android:text="Free throw" />
+            android:onClick="points"
+            android:text="Points" />
 
         <Button
             android:id="@+id/button2"
@@ -239,8 +239,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:onClick="checkAdd"
-            android:text="Free throw" />
+            android:onClick="help"
+            android:text="Help" />
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -252,6 +252,39 @@
                 android:layout_height="wrap_content"
                 android:onClick="check"
                 android:text="Check All" />
+
         </RelativeLayout>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:alpha="@android:integer/config_shortAnimTime"
+            android:clickable="true"
+            android:elevation="@dimen/cardview_compat_inset_shadow"
+            android:fadingEdge="vertical"
+            android:focusable="true"
+            android:translationZ="@dimen/cardview_default_elevation"
+            app:cardBackgroundColor="@android:color/holo_orange_light"
+            app:cardElevation="3dp"
+            app:cardUseCompatPadding="true"
+            app:contentPadding="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="15dp"
+                android:text="Points earned:"
+                android:textColor="@color/colorPrimary"
+                tools:background="#89526218" />
+
+            <TextView
+                android:id="@+id/pointshere"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:padding="10dp"
+                android:text="........" />
+        </android.support.v7.widget.CardView>
     </LinearLayout>
 </LinearLayout>
