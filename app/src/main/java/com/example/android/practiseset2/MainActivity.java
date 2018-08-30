@@ -1,10 +1,13 @@
 package com.example.android.practiseset2;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.Random;
@@ -12,6 +15,7 @@ import java.util.Random;
 /*Class definition for MainActivity which is extension (so we can use inherited methods for example findViewbyId)
  of AppCompatActivity. I have made global variable for points*/
 public class MainActivity extends AppCompatActivity {
+    private Handler handler = new Handler();
     int points=0;
 /*By using override, it is possible to modify inherited methods from super class. I add here method for moving the focus to first answer view
 * after starting the application.*/
@@ -22,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         EditText result=(EditText)findViewById(R.id.result);
         result.requestFocus();
     }
+    /*This method is generating pseudo-random numbers, converts them to binary and put on the right places.*/
     public void getQuestion(View view)
     {    Random r1=new Random();
         int pcn1=r1.nextInt(100);
@@ -39,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         number1View.setText(String.valueOf(Integer.toBinaryString(pcn1)));
         TextView number2View = (TextView) findViewById(R.id.number_2);
         number2View.setText(String.valueOf(Integer.toBinaryString(pcn2)));
-        EditText result=(EditText)findViewById(R.id.result);
+        final EditText result=(EditText)findViewById(R.id.result);
         result.setText("");
         TextView number3View = (TextView) findViewById(R.id.number_3);
         number3View.setText(String.valueOf(Integer.toBinaryString(pcn3)));
@@ -53,6 +58,31 @@ public class MainActivity extends AppCompatActivity {
         number6View.setText(String.valueOf(Integer.toBinaryString(pcn6)));
         EditText resultm=(EditText)findViewById(R.id.resultM);
         resultm.setText("");
+        /*Creating ProgressBar object*/
+        final ProgressBar prbr=findViewById(R.id.progressBar);
+        prbr.setBackgroundColor(Color.YELLOW);
+        prbr.setMax(115);
+        final int[] progressStatus = {0};
+        //Long operation by thread
+        new Thread(new Runnable() {
+            public void run() {
+                while (progressStatus[0] < 100) {
+                    progressStatus[0] += 4;
+                    //Update progress bar with completion of operation
+                    handler.post(new Runnable() {
+                        public void run() {
+                            prbr.setProgress(progressStatus[0]);
+                        }
+                    });
+                    try {
+                      /*   Sleep for 300 milliseconds.
+                        Just to display the progress slowly*/
+                        Thread.sleep(300);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace(); }
+                        }
+                        }
+        }).start();
     }
     /*Method for displaying points. The casting which I have used here is not actually  necessary since API 26 and
     I could have delete it safely. */
@@ -148,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void checkAll(View view){
     }
-
+/*Creates explicit intent object which is used to open another (help) activity.*/
     public void help(View view) {
         Intent intent = new Intent(MainActivity.this, HelpScreen.class);
         startActivity(intent);

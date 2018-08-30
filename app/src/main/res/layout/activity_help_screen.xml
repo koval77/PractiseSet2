@@ -6,21 +6,17 @@
     android:layout_height="match_parent"
     android:background="@drawable/ph1"
     tools:context=".HelpScreen">
-
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
-
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
-
     </android.support.design.widget.AppBarLayout>
-
     <include
         layout="@layout/content_help_screen"
         android:layout_height="275dp"
@@ -42,30 +38,31 @@
         android:padding="20dp"
         app:cardBackgroundColor="?attr/editTextColor"
         app:cardElevation="@dimen/cardview_default_radius"
-        tools:alpha="@sample/tools:date/day_of_week"
-        >
-
+        tools:alpha="@sample/tools:date/day_of_week">
         <RelativeLayout
-            android:layout_width="fill_parent"
+            android:layout_width="365dp"
             android:layout_height="fill_parent">
-
             <TextView
                 android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:textStyle="bold"
-                android:text="dupdajyfglgh"
-                android:textColor="@android:color/darker_gray"/>
-
+                android:layout_width="358dp"
+                android:layout_height="217dp"
+                android:layout_alignParentTop="false"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="15dp"
+                android:padding="15dp"
+                android:text="@string/help_text_part1"
+                android:textColor="@android:color/darker_gray"
+                android:textStyle="bold" />
             <TextView
                 android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="129dp"
                 android:layout_below="@+id/textView"
-                android:layout_marginTop="10dp"
-                android:textColor="#3333333333"/>
+                android:layout_marginTop="-64dp"
+                android:padding="15dp"
+                android:text="@string/help_text_part2"
+                android:textColor="@android:color/darker_gray" />
         </RelativeLayout>
     </android.support.v7.widget.CardView>
-
 </android.support.design.widget.CoordinatorLayout>

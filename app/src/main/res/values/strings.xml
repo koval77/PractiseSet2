@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">Binary numbers quiz</string>
     <string name="title_activity_help_screen">HelpScreen</string>
+    <string name="help_text_part1">The aim of this game is to give opportunity to train mathematical skills based on operations on binary numbers. User should enter the correct answers on the corresponding result fields on the right-hand side of the screen and check them by pressing checks buttons.</string>
+    <string name="help_text_part2">For every correct answer the user will earn points visible on the widget in the bottom right side of the screen. For addition there is 10 points, for subtraction 50 and for multiplication 100 points. </string>
 </resources>
